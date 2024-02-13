@@ -8,16 +8,25 @@ timer.py uses the time library to help keep track of time
 
 # This program is timer that counts down
 
+import time
+import random
+from PIL import Image
 
-import time # The time library has a sleep function that will pause the script for a specifized amount of time
-from PIL import Image # the pillow library makes it easy to display images 
+# Function to play the 'Nerve of Steel' game
+def nerve_of_steel_game(image_path):
+    print("Players stand")
 
-im = Image.open("times-up.jpeg")
+    # Sleep for a random time between 5 to 25 seconds
+    sleep_time = random.randint(5, 25)
+    time.sleep(sleep_time)
 
-# ask user to enter desired countdown time
-set_time = int(input("Please set your timer in seconds: "))
+    # After the sleep time is over, it shows the image and prints the message
+    im = Image.open(image_path)
+    im.show()
+    print("Time Up. Last to sit down wins.")
 
-time.sleep(set_time)
+# The actual image path will need to be provided when calling this function.
+nerve_of_steel_game("/Users/bass/Downloads/times-up.jpeg")
 
-im.show()
+
 
